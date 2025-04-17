@@ -3,26 +3,22 @@
 A e-commerce application built with Laravel and Livewire.
 
 ## Features
-
 - **Product Catalog**: Browse through products
 - **User Authentication**: Secure login and registration system
 - **Shopping Cart**: Real-time cart management with Livewire
 
 ## Tech Stack
-
 - **Backend**: Laravel 12.x
 - **Frontend**: Livewire + Alpine.js + Tailwindcss
 - **Database**: MySQL
 
 ## Requirements
-
 - PHP 8.4 or higher
 - Composer
 - Node.js & NPM
 - MySQL
 
 ## Installation
-
 1. Clone the repository
    ```
    git clone https://github.com/matheus-faustino/livewire-shop.git
@@ -34,13 +30,14 @@ A e-commerce application built with Laravel and Livewire.
    ```
 
 3. Instantiate the Docker containers
-    ```
-    docker compose up -d --build
-    ```
+   ```
+   docker compose up -d --build
+   ```
+
 4. Run bash from PHP container
-    ```
-    docker compose exec php bash
-    ```
+   ```
+   docker compose exec php bash
+   ```
 
 5. Install PHP dependencies
    ```
@@ -68,20 +65,18 @@ A e-commerce application built with Laravel and Livewire.
    ```
 
 10. Init local Vite server
-   ```
-   npm run dev
-   ```
+    ```
+    npm run dev
+    ```
 
 ## Usage
-
 Visit `http://localhost:8000` in your browser to access the application.
-
 - Create an account
 - Access `http://localhost:8025` (a local mail server for testing) and proceed with e-mail verification
 - Browse products and add them to your cart
 
 ## Roadmap
-
+- [ ] Improve cart funcionality
 - [ ] Implement checkout with Stripe payment gateway
 - [ ] Implement shipping calculation
 - [ ] Implement administrative dashboard for system management
