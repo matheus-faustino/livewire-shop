@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Livewire\Components;
+namespace App\Livewire\Ui;
 
 use Illuminate\Contracts\View\View;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Session;
 use Livewire\Component;
 
-class CartCounter extends Component
+class CartBadge extends Component
 {
     #[Session]
     public ?int $counter = 0;
 
     public function render(): View
     {
-        return view('livewire.components.cart-counter');
+        return view('livewire.ui.cart-badge');
     }
 
     #[On('product-added')]

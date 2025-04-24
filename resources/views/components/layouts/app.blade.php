@@ -56,14 +56,14 @@
                                     </button>
                                 </div>
                             </div>
-                            <livewire:components.cart-counter/>
+                            <livewire:ui.cart-badge/>
                         </div>
                     </div>
                 </div>
             </header>
 
             <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                <livewire:components.cart/>
+                <livewire:ui.cart-widget/>
                 {{ $slot }}
             </main>
         </div>

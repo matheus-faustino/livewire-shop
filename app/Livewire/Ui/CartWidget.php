@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Components;
+namespace App\Livewire\Ui;
 
 use App\Models\Product;
 use Illuminate\Contracts\View\View;
@@ -9,7 +9,7 @@ use Livewire\Attributes\Session;
 use Livewire\Component;
 use NumberFormatter;
 
-class Cart extends Component
+class CartWidget extends Component
 {
     public bool $isOpen = false;
 
@@ -19,7 +19,7 @@ class Cart extends Component
 
     public function render(): View
     {
-        return view('livewire.components.cart');
+        return view('livewire.ui.cart-widget');
     }
 
     #[On('product-added')]

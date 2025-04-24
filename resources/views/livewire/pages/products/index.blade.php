@@ -15,7 +15,7 @@
     <!-- Product Grid -->
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
         @foreach ($products as $product)
-            <livewire:components.product :$product :key="$product->id">
+            <livewire:ui.product-card :$product :key="$product->id">
         @endforeach
     </div>
 </div>
