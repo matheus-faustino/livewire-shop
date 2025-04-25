@@ -2,9 +2,12 @@
 
 namespace App\Providers;
 
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
-use Illuminate\Support\Facades\Event;
+use App\Interfaces\Services\ProductServiceInterface;
+use App\Interfaces\Services\ServiceInterface;
+use App\Interfaces\Services\UserServiceInterface;
+use App\Services\BaseService;
+use App\Services\ProductService;
+use App\Services\UserService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -14,7 +17,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(ServiceInterface::class, BaseService::class);
+        $this->app->bind(UserServiceInterface::class, UserService::class);
+        $this->app->bind(ProductServiceInterface::class, ProductService::class);
     }
 
     /**

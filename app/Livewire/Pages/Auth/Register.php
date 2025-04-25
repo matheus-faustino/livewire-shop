@@ -2,12 +2,11 @@
 
 namespace App\Livewire\Pages\Auth;
 
-use App\Models\User;
+use App\Interfaces\Services\UserServiceInterface;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Attributes\Validate;
@@ -34,17 +33,17 @@ class Register extends Component
         return view('livewire.pages.auth.register');
     }
 
-    public function register(): RedirectResponse | Redirector
+    public function register(UserServiceInterface $userService): RedirectResponse | Redirector
     {
         $this->validate();
 
         $userData = [
             'name' => $this->name,
             'email' => $this->email,
-            'password' => Hash::make($this->password),
+            'password' => $this->password,
         ];
 
-        $user = User::create($userData);
+        $user = $userService->create($userData);
 
         // Event needed for email verification
         event(new Registered($user));

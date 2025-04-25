@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Pages\Products;
 
-use App\Models\Product;
+use App\Interfaces\Services\ProductServiceInterface;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 use Livewire\Attributes\Title;
@@ -18,8 +18,8 @@ class Index extends Component
         return view('livewire.pages.products.index');
     }
 
-    public function mount(): void
+    public function mount(ProductServiceInterface $productService): void
     {
-        $this->products = Product::all();
+        $this->products = $productService->all();
     }
 }
