@@ -11,7 +11,7 @@ class Product extends Model
     /** @use HasFactory<\Database\Factories\ProductFactory> */
     use HasFactory;
 
-    protected $fillable = ['slug', 'name', 'description', 'price', 'image_url'];
+    protected $fillable = ['slug', 'name', 'description', 'price', 'image_url', 'external_id'];
 
     /**
      * Get the route key for the model.

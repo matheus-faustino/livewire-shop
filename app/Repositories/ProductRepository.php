@@ -13,4 +13,9 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
     {
         $this->model = $model;
     }
+
+    public function findProductByExternalId(string $externalId): ?Product
+    {
+        return $this->model->where('external_id', $externalId)->first();
+    }
 }

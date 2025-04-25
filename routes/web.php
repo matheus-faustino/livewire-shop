@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StripeWebhookController;
 use App\Livewire\Pages\Auth\Login;
 use App\Livewire\Pages\Auth\Register;
 use App\Livewire\Pages\Auth\Password\Recovery;
@@ -52,3 +53,5 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/', Index::class)->name('products.index');
     Route::get('/{product}', Show::class)->name('products.show');
 });
+
+Route::post('/stripe/webhook', [StripeWebhookController::class, 'handleWebhook'])->name('stripe.webhook');
