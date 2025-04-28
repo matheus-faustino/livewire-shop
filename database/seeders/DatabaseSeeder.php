@@ -14,6 +14,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Product::factory(10)->create(['image_url' => 'https://dummyimage.com/800x800/000000/ffffff.jpg&text=Product']);
+        // Product::factory(10)->create(['image_url' => 'https://dummyimage.com/800x800/000000/ffffff.jpg&text=Product']);
     }
 }
