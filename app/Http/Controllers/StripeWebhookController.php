@@ -30,6 +30,12 @@ class StripeWebhookController extends Controller
                 $this->productService->syncProducts();
             }
 
+            if (in_array($event->type, ['product.deleted'])) {
+                $product = $this->productService->findProductByExternalId($event->data->object->id);
+
+                $this->productService->delete($product->id);
+            }
+
             return response()->json('Webhook handled', 200);
         } catch (Exception $e) {
             return response()->json('Webhook error: ' . $e->getMessage(), 400);

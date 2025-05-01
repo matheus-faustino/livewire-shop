@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Interfaces\Repositories\ProductRepositoryInterface;
 use App\Interfaces\Services\ProductServiceInterface;
+use App\Models\Product;
 use Illuminate\Support\Str;
 use Stripe\StripeClient;
 
@@ -55,5 +56,10 @@ class ProductService extends BaseService implements ProductServiceInterface
                 ]);
             }
         }
+    }
+
+    public function findProductByExternalId(string $externalId): Product
+    {
+        return $this->repository->findProductByExternalId($externalId);
     }
 }
