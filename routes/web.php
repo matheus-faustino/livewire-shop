@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\StripeWebhookController;
 use App\Livewire\Pages\Auth\Login;
 use App\Livewire\Pages\Auth\Register;
 use App\Livewire\Pages\Auth\Password\Recovery;
 use App\Livewire\Pages\Auth\Password\Reset;
 use App\Livewire\Pages\Auth\Verification\Notice;
+use App\Livewire\Pages\Checkout\Cancel;
+use App\Livewire\Pages\Checkout\Success;
 use App\Livewire\Pages\Products\Index;
 use App\Livewire\Pages\Products\Show;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -51,6 +54,9 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/', Index::class)->name('products.index');
+    Route::get('/checkout', [CheckoutController::class, 'generateCheckoutSession'])->name('checkout.create');
+    Route::get('/checkout/success', Success::class)->name('checkouts.sucess');
+    Route::get('/checkout/cancel', Cancel::class)->name('checkouts.cancel');
     Route::get('/{product}', Show::class)->name('products.show');
 });
 

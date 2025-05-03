@@ -2,7 +2,6 @@
     x-data="{ open: false }" 
     @click.away="open = false"
     class="relative">
-    <!-- Dropdown toggle -->
     <button 
         @click="open = !open" 
         wire:click="$dispatch('toggle-open')" 
@@ -18,7 +17,6 @@
         @endif
     </button>
     
-    <!-- Cart Dropdown -->
     <div 
         x-show="open" 
         x-transition:enter="transition ease-out duration-200" 
@@ -91,13 +89,12 @@
         </div>
         
         @if(count($products) > 0)
-            <!-- Checout button -->
             <div class="p-4">
                 <div class="flex justify-between mb-4">
                     <span class="font-semibold">Total:</span>
                     <span class="font-semibold">{{ $this->getTotalPrice() }}</span>
                 </div>
-                <a href="#" class="block text-center bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">
+                <a href="{{ route('checkout.create') }}" class="block text-center bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">
                     Checkout
                 </a>
             </div>

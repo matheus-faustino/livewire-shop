@@ -77,7 +77,7 @@ Visit `http://localhost:8000` in your browser to access the application.
 
 ## Roadmap
 - [x] Improve cart funcionality
-- [ ] Implement checkout with Stripe payment gateway
+- [x] Implement checkout with Stripe payment gateway
 - [ ] Implement shipping calculation
 - [ ] Implement administrative dashboard for system management
 - [ ] Add product reviews and ratings
